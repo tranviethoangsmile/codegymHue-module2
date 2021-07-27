@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
         ArrayList<String> listOnes = new ArrayList<String>();
-        listOnes.add(" ");
+        listOnes.add("zero");
         listOnes.add("one");
         listOnes.add("two");
         listOnes.add("three");
@@ -17,6 +17,9 @@ public class Main {
         listOnes.add("seven");
         listOnes.add("eight");
         listOnes.add("nine");
+        listOnes.add("ten");
+
+
 
         ArrayList<String> listTens = new ArrayList<String>();
         listTens.add("ten");
@@ -29,11 +32,13 @@ public class Main {
         listTens.add("seventeen");
         listTens.add("eighteen");
         listTens.add("nineteen");
+        listTens.add("twenty");
+
 
 
         ArrayList<String> listTys = new ArrayList<String>();
-        listTys.add("zero");
-        listTys.add("one");
+        listTys.add("");
+        listTys.add("");
         listTys.add("twenty");
         listTys.add("thirty");
         listTys.add("fourty");
@@ -48,17 +53,17 @@ public class Main {
         Scanner input = new Scanner(System.in);
         System.out.println("enter number 1 >> 99:");
         number = input.nextInt();
-        if(number < 10){
+        if(number <= 10){
             System.out.println(listOnes.get(number));
         }else if(number < 20){
-            int num = number %10;
+            int num = number%10;
             System.out.println((listTens.get(num)));
+        }else if(number ==20){
+            System.out.println((listTens.get(10)));
         }else{
             int ty = number/10;
             int one = number%10;
             System.out.println(listTys.get(ty) + " " + listOnes.get(one));
         }
-
-
     }
 }
