@@ -10,17 +10,15 @@ public class Main {
         for(int x:arrNumber){
             System.out.print(x + " ");
         }
-        System.out.println(" ");
-
 
         Scanner sc = new Scanner(System.in);
 	    int index;
 	    int value;
 	    do{
-            System.out.println("input index: ");
+            System.out.println("\ninput index: ");
             index = sc.nextInt();
-        }while(index <= 0 || index > arrNumber.length);
-
+        }while(index < 0 || index > arrNumber.length);
+        System.out.println("input value: ");
 	    value = sc.nextInt();
 
 	   for(int i = arrNumber.length - 1; i > index; i-- ){
@@ -29,7 +27,7 @@ public class Main {
        }
 	   arrNumber[index] = value;
 
-        System.out.println("hàm sau khi chèn: ");
+        System.out.println("\nhàm sau khi chèn: ");
 	   for(int k:arrNumber) {
            System.out.print(k + " ");
        }

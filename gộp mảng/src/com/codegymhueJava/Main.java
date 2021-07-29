@@ -13,21 +13,21 @@ public class Main {
 //        newArray = new int[newArrLength];
 //        int push = 0;
 //
-//        System.out.println("Mảng 1: ");
+//        System.out.print("Mảng 1: ");
 //        for(int element: arrayFist){
-//            System.out.println(element + " ");
+//            System.out.print(element + " ");
 //            newArray[push] = element;
 //            push++;
 //        }
 //
-//        System.out.println("mảng 2: ");
+//        System.out.print("\nmảng 2: ");
 //        for(int element: arrayLast){
-//            System.out.println(element + " ");
+//            System.out.print(element + " ");
 //            newArray[push] = element;
 //            push++;
 //        }
 //
-//        System.out.println("Mảng sau khi gộp: ");
+//        System.out.print("\nMảng sau khi gộp: ");
 //        for(int element: newArray){
 //            System.out.print(element + " ");
 //        }
@@ -39,8 +39,8 @@ public class Main {
         int [] newArray;
         int newArrLength = arrayFist.length + arrayLast.length;
         newArray = new int[newArrLength];
-        System.arraycopy(arrayFist,0,newArray,0,arrayFist.length);
-        System.arraycopy(arrayLast,0,newArray,arrayFist.length,arrayLast.length);
+        System.arraycopy(arrayFist,0, newArray,0, arrayFist.length);
+        System.arraycopy(arrayLast,0, newArray, arrayFist.length, arrayLast.length);
         System.out.println(Arrays.toString(newArray));
 
 

@@ -27,9 +27,10 @@ public class Main {
             for(int j = 0; j < size; j++){
 //            System.out.println("input number: ");
 //            matrix[i][j] = sc.nextInt();
-                System.out.println("ví trí " + "[" + i + "][" + j + "]=" + matrix[i][j] + " ");
-
+//                System.out.println("ví trí " + "[" + i + "][" + j + "]=" + matrix[i][j] + " ");
+                System.out.print(matrix[i][j] + "\t");
             }
+            System.out.print("\n");
         }
         System.out.println("max is: " + findMaxAtMatrix(matrix) );
 
