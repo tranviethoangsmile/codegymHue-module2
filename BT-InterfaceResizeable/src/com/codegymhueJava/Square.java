@@ -1,6 +1,6 @@
 package com.codegymhueJava;
 
-public class Square extends Shape{
+public class Square extends Shape implements Colorable {
     private double side=1.0;
 
     public Square() {
@@ -26,11 +26,15 @@ public class Square extends Shape{
 
     @Override
     public String toString(){
-        return "A square with side = "+getSide()+", which is a subclass of "+super.toString();
+        return "A square with side = "+getSide()+", which is a subclass of "+super.toString()+ " " + this.howToColor();
     }
 
     @Override
     public void resize(double percent) {
         this.side=(this.side*(percent/100));
+    }
+
+    public String howToColor() {
+        return "Color all four sides..";
     }
 }
