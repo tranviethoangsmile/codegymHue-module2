@@ -65,16 +65,17 @@ public class MyLinkedList {
 
     public boolean remove(Object o) {
         Node temp = head;
-        boolean remove = false;
         for (int i = 0; i < numNodes; i++) {
-            if (temp.getData() == o) {
-                remove = true;
-                temp = temp.next;
+            if (temp.next.getData() == o) {
+             Node holder = temp;
+             temp = temp.next;
+             holder.next = temp.next;
+                numNodes--;
+                return true;
             }
-            temp = temp.next;
+
         }
-        numNodes--;
-        return remove;
+        return false;
     }
 
     public int size() {
