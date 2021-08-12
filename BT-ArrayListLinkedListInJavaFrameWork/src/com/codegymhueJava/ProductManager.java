@@ -7,40 +7,70 @@ public class ProductManager {
     static List<Products> listProducts = new ArrayList<Products>();
     static Scanner scanner = new Scanner(System.in);
 
-    public static void add(Products products) {
+    public static void add() {
+        System.out.println("ID: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("name: ");
+        String name = scanner.nextLine();
+
+        System.out.println("Giá: ");
+        int price = scanner.nextInt();
+
+        Products products = new Products(id,name,price);
         listProducts.add(products);
     }
 
-    public static void Edit (int id) {
+    public static void edit () {
+        System.out.println("id muốn sửa: ");
+        int id = scanner.nextInt();
+
         for(Products i : listProducts) {
             if(i.getId() == id) {
+                scanner.nextLine();
+                System.out.println("New name: ");
                 i.setNameProduct(scanner.nextLine());
+                System.out.println("New Price: ");
                 i.setPrice(scanner.nextInt());
             }
         }
+
     }
 
-    public static  void remove (int id) {
-        listProducts.remove(id);
+    public static  void remove () {
+        System.out.println("id muốn xóa: ");
+        int id = scanner.nextInt();
+        for(Products i : listProducts) {
+            if(i.getId() == id) {
+               listProducts.remove(id);
+            }
+        }
+        System.out.println("ID không tồn tại");
     }
 
     public void displayProduct () {
+        System.out.println("--------------Danh sách sản phẩm--------------------");
+        System.out.println("\tID                 Tên       Giá: ");
+        System.out.println("----------------------------------------------------");
         for (Products i : listProducts) {
             System.out.println(i);
         }
+        System.out.println("--------------------Kết thúc-------------------------");
     }
 
-    public void searchProducts (String name) {
+    public void searchProducts () {
+        System.out.println("Name: ");
+        scanner.nextLine();
+        String name = scanner.nextLine();
        for (Products p : listProducts) {
            if (p.getNameProduct().equals(name)) {
+               System.out.println("--------------Danh sách sản phẩm--------------------");
+               System.out.println("\tID                 Tên       Giá: ");
+               System.out.println("----------------------------------------------------");
                System.out.println(p);
-               System.exit(0);
            }
        }
-
-            System.out.println(name + " không có trong list");
-
-
     }
 
     public void sapXepTangDan() {
