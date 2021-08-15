@@ -71,6 +71,7 @@ public class Main {
         int option;
         do {
             menuOptions();
+            System.out.print("option: ");
             option = check.checkInteger(0,2);
             switch (option) {
                 case 1 :
@@ -145,7 +146,8 @@ public class Main {
         int option;
         do {
             menuOptions();
-             option = check.checkInteger(0,2);
+            System.out.print("option: ");
+            option = check.checkInteger(0,2);
             switch (option) {
                 case 1 :
                     deleteWithName();
