@@ -8,14 +8,14 @@ public class ProductManager {
     static Scanner scanner = new Scanner(System.in);
 
     public static void add() {
-        System.out.println("ID: ");
+        System.out.print("ID: ");
         int id = scanner.nextInt();
         scanner.nextLine();
 
-        System.out.println("name: ");
+        System.out.print("name: ");
         String name = scanner.nextLine();
 
-        System.out.println("Giá: ");
+        System.out.print("Giá: ");
         int price = scanner.nextInt();
 
         Products products = new Products(id,name,price);
@@ -23,15 +23,15 @@ public class ProductManager {
     }
 
     public static void edit () {
-        System.out.println("id muốn sửa: ");
+        System.out.print("id muốn sửa: ");
         int id = scanner.nextInt();
 
         for(Products i : listProducts) {
             if(i.getId() == id) {
                 scanner.nextLine();
-                System.out.println("New name: ");
+                System.out.print("New name: ");
                 i.setNameProduct(scanner.nextLine());
-                System.out.println("New Price: ");
+                System.out.print("New Price: ");
                 i.setPrice(scanner.nextInt());
             }
         }
@@ -39,7 +39,7 @@ public class ProductManager {
     }
 
     public static  void remove () {
-        System.out.println("id muốn xóa: ");
+        System.out.print("id muốn xóa: ");
         int id = scanner.nextInt();
         for(Products i : listProducts) {
             if(i.getId() == id) {

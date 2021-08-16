@@ -1,2 +1,5 @@
-package com.codegymhueJava;public class Char {
+package com.codegymhueJava;
+
+public class Char {
+    Static
 }

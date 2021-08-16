@@ -1,2 +1,5 @@
-package com.codegymhueJava;public interface DemoGeneric {
+package com.codegymhueJava;
+
+public interface DemoGeneric {
+    String nameGeniric();
 }

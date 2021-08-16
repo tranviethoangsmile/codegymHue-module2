@@ -120,7 +120,7 @@ public class MyLinkedList {
         return (Node) temp.getData();
     }
 
-    public Object getFirst() {
+    public Object getFirst()     {
         return head.getData();
     }
 

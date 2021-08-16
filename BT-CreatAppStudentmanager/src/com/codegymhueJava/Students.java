@@ -1,14 +1,14 @@
 package com.codegymhueJava;
 
-public class Student {
+public class Students {
    private String name;
    private int code;
    private String address;
 
-    public Student() {
+    public Students() {
     }
 
-    public Student(String name, int code, String address) {
+    public Students(String name, int code, String address) {
         this.name = name;
         this.code = code;
         this.address = address;
@@ -40,10 +40,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", code=" + code +
-                ", address='" + address + '\'' +
-                '}';
+        return String.format("%20s%5d%20s",name,code,address);
     }
 }

@@ -1,15 +1,15 @@
 package com.codegymhueJava;
 
-public class BtOnline {
+public class Working {
    private String name;
-   private double code;
+   private int code;
    private double price;
    private String brand;
 
-    public BtOnline() {
+    public Working() {
     }
 
-    public BtOnline(String name,double code,double price,String brand) {
+    public Working(String name, int code, double price, String brand) {
         this.name = name;
         this.code = code;
         this.price = price;
@@ -28,7 +28,7 @@ public class BtOnline {
         return code;
     }
 
-    public void setCode(double code) {
+    public void setCode(int code) {
         this.code = code;
     }
 
@@ -50,6 +50,6 @@ public class BtOnline {
 
     @Override
     public String toString() {
-        return 
+        return String.format("%10s%10d%20f%20s",name,code,price,brand);
     }
 }

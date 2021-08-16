@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="656d46f4-304c-4d18-b574-0bf4c25c912e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../DSA-code/src/com/codegymhueJava/MyLinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DSA-code/src/com/codegymhueJava/QueueByArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DSA-code/src/com/codegymhueJava/QueueByLinkedListOfJava.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DSA-code/src/com/codegymhueJava/QueueByMyLinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DSA-code/src/com/codegymhueJava/StackByArrayList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DSA-code/src/com/codegymhueJava/StackByLinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DSA-code/src/com/codegymhueJava/StackByMyLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BT - FizzBizzTest/src/com/codegymhueJava/FizzBuzzTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BT - FizzBizzTest/src/com/codegymhueJava/FizzBuzzTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BT - FizzBuzz/src/com/codegymhueJava/FizzBuzz.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BT - FizzBuzz/src/com/codegymhueJava/FizzBuzz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BT-CreatAppStudentmanager/src/com/codegymhueJava/Students.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BT-CreatAppStudentmanager/src/com/codegymhueJava/Students.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BT-LinkedList/src/com/codegymhueJava/MyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BT-LinkedList/src/com/codegymhueJava/MyLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BT-ONLINE/src/com/codegymhueJava/Working.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BT-ONLINE/src/com/codegymhueJava/Working.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BT-TUCODE/src/com/codegymhueJava/Students.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BT-TUCODE/src/com/codegymhueJava/Students.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BT-Triển khai ArrayList/src/com/codegymhueJava/MyList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BT-Triển khai ArrayList/src/com/codegymhueJava/MyList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BT-Tính ngày tiếp theo/src/com/codegymhueJava/NextDayCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BT-Tính ngày tiếp theo/src/com/codegymhueJava/NextDayCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BT-Tính ngày tiếp theo/src/com/codegymhueJava/NextDayCalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BT-Tính ngày tiếp theo/src/com/codegymhueJava/NextDayCalculatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BT-checkCharAt/src/com/codegymhueJava/Char.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BT-checkCharAt/src/com/codegymhueJava/Char.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DEMOO-TEST/src/com/codegymhueJava/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DEMOO-TEST/src/com/codegymhueJava/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DEMOO-TEST/src/com/codegymhueJava/ProjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DEMOO-TEST/src/com/codegymhueJava/ProjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TH - Refactoring - tách biến/src/com/codegymhueJava/FizzBuzz.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TH - Refactoring - tách biến/src/com/codegymhueJava/FizzBuzz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TH - Refactoring - tách biến/src/com/codegymhueJava/FizzBuzzTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TH - Refactoring - tách biến/src/com/codegymhueJava/FizzBuzzTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TH-Refactoring - tách phương thức/src/com/codegymhueJava/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TH-Refactoring - tách phương thức/src/com/codegymhueJava/Cylinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TH-Refactoring - tách phương thức/src/com/codegymhueJava/CylinderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TH-Refactoring - tách phương thức/src/com/codegymhueJava/CylinderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TH-Triển khai lớp list cơ bản/src/com/codegymhueJava/MyList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TH-Triển khai lớp list cơ bản/src/com/codegymhueJava/MyList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo-Generic/src/com/codegymhueJava/DemoGeneric.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo-Generic/src/com/codegymhueJava/DemoGeneric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo-Generic/src/com/codegymhueJava/Generic.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo-Generic/src/com/codegymhueJava/Generic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/untitled104/com/codegymhueJava/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../studentManager/src/com/codegymhueJava/Students.java" beforeDir="false" afterPath="$PROJECT_DIR$/../studentManager/src/com/codegymhueJava/Students.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/src/com/codegymhueJava/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/com/codegymhueJava/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/src/com/codegymhueJava/ProjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/com/codegymhueJava/ProjectTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1wbglpxJWsUIgf0DIw2NTlATND9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="company" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="NEW_TOOLWINDOW_STRIPE_DEFAULTS" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.codegymhueJava.Main" />
+      <module name="untitled" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="656d46f4-304c-4d18-b574-0bf4c25c912e" name="Changes" comment="" />
+      <created>1628732863034</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1628732863034</updated>
+      <workItem from="1628732866394" duration="5000" />
+    </task>
+    <servers />
+  </component>
+</project>

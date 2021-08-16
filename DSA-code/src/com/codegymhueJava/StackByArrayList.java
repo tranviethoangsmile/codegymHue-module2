@@ -2,7 +2,7 @@ package com.codegymhueJava;
 
 import java.util.ArrayList;
 
-public class Stack <E> {
+public class StackByArrayList<E> {
 
     private ArrayList<E> element = new ArrayList<>();
 
@@ -28,8 +28,6 @@ public class Stack <E> {
            return true;
        return false;
     }
-
-
 
     public void printStack () {
         System.out.println(element.toString());

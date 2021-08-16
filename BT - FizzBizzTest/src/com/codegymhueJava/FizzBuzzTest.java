@@ -2,7 +2,7 @@ package com.codegymhueJava;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FizzBuzzTest {
 
@@ -14,7 +14,7 @@ class FizzBuzzTest {
     void tearDown() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void fizzBuzz1() {
         String result = FizzBuzz.fizzBuzz(3);
         String expected = "Fizz";

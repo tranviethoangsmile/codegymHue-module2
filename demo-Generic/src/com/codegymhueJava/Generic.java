@@ -1,2 +1,8 @@
-package com.codegymhueJava;public class Generic {
+package com.codegymhueJava;
+
+public class Generic implements DemoGeneric{
+
+
+   
+
 }
