@@ -1,5 +1,7 @@
 package com.codegymhueJava;
 
+import com.codegymhueJava.Student.Students;
+
 import java.io.*;
 import java.util.*;
 
@@ -255,6 +257,6 @@ public class Main {
     }
 
     public static void tableShow() {
-        System.out.println("\t\t\t   |name||Oral Test|  |15'| \t|45'|\t|Semester|   |Medium|");
+        System.out.println("\tID\t\t\t   |name||Oral Test|  |15'| \t|45'|\t|Semester|   |Medium|");
     }
 }

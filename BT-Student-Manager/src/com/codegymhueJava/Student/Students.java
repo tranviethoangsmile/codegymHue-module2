@@ -1,18 +1,26 @@
-package com.codegymhueJava;
+package com.codegymhueJava.Student;
 
 public class Students {
     private String name;
+    private String id;
     private double oralTest;
     private double test15;
     private double test45;
     private double semesterTest;
+    public static int count = 0;
 
     public Students () {
 
     }
 
+    public static String autoId() {
+        count++;
+        return "CG" +  count;
+    }
+
     public Students (String name, double oralTest, double test15, double test45,double semesterTest) {
         this.name = name;
+        this.id = autoId();
         this.oralTest = oralTest;
         this.test15 = test15;
         this.test45 = test45;
@@ -65,6 +73,6 @@ public class Students {
     }
 
     public String toString() {
-        return String.format("%20s%10f%10f%10f%10f%10d",name,oralTest,test15,test45,semesterTest,this.getMedium());
+        return String.format("%5s%20s%10f%10f%10f%10f%10d",id,name,oralTest,test15,test45,semesterTest,this.getMedium());
     }
 }
