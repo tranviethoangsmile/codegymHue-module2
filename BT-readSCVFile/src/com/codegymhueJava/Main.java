@@ -3,7 +3,6 @@ package com.codegymhueJava;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Main {
 
@@ -34,24 +33,24 @@ public class Main {
            System.out.println("not avaiable");
        }
 
-        List<String> newlist = readFileCSV(new File("file.csv"));
+        List<National> newlist = readFileCSV(new File("file.csv"));
 
-       for(String s : newlist) {
+       for(National s : newlist) {
            System.out.println(s);
        }
     }
 
-    public static List<String> readFileCSV(File file){
-        List<String> list = new ArrayList<String>();
+    public static List<National> readFileCSV(File file){
+        List<National> list = new ArrayList<>();
         String line = null;
         try {
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             while((line = br.readLine()) != null) {
                 String [] arr = line.split(", ");
-                for(int i = 0; i < arr.length; i++) {
-                    list.add(arr[i]);
-                }
+               String code = arr[1];
+               String name = arr[2];
+               list.add(new National(code,name));
             }
         }catch (Exception e) {
         }
