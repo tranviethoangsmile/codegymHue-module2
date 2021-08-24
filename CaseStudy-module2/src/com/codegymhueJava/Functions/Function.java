@@ -36,6 +36,12 @@ public class Function {
     //    kiểm tra đầu vào
     static CheckInput check = new CheckInput();
 
+//    đọc file
+    static ReadFile readFile = new ReadFile();
+
+//    ghi file
+    static WriteFile writeFile = new WriteFile();
+
     //    List
     static List<FoodsObj> listFoods = new ArrayList<FoodsObj>();
     public static void thanhToan() throws InterruptedException {
@@ -54,65 +60,178 @@ public class Function {
         }
     }
 
-    public static void menuDoUong() {
-        if (listMonLau.size() == 0) {
+    public static void menuDoUong() throws InterruptedException {
+        List<DoUong> douong = readFile.readDoUong();
+        if (douong.size() == 0) {
             System.out.println(ANSI_YELLOW + "TẠM HẾT HÀNG");
         }else {
             System.out.println(ANSI_CYAN + "\n|||||||||||||||||||||||||||||||||||||||||");
             System.out.println("||           THỰC ĐƠN ĐỒ UỐNG          ||");
             System.out.println("||-------------------------------------||");
-            System.out.println("|| " +listDoUong.get(0).getPrice() + "k" + "          "+listDoUong.get(0).getName());
-            System.out.println("|| " +listDoUong.get(1).getPrice() + "k" + "          "+listDoUong.get(1).getName());
-            System.out.println("|| " +listDoUong.get(2).getPrice() + "k" + "          "+listDoUong.get(2).getName());
+            System.out.println("|| " +douong.get(0).getPrice() + "k" + "          "+douong.get(0).getName());
+            System.out.println("|| " +douong.get(1).getPrice() + "k" + "          "+douong.get(1).getName());
+            System.out.println("|| " +douong.get(2).getPrice() + "k" + "          "+douong.get(2).getName());
             System.out.println("||                           0. _back_ ||");
             System.out.println("|||||||||||||||||||||||||||||||||||||||||");
         }
+        int selectDU;
+        String du = "";
+        int quantityL = 0;
+        int priceR = 0;
+
+        do {
+            System.out.print(ANSI_YELLOW + "select: ");
+            selectDU = (int) checkInteger(0,3);
+            switch (selectDU)
+            {
+                case 0 :
+                    menu();
+                    break;
+                case 1 :
+                    du = douong.get(0).getName();
+                    System.out.print("Số lượng: ");
+                    quantityL = (int) checkInteger(0,10);
+                    priceR = douong.get(0).getPrice()* quantityL;
+                    listFoods.add(new FoodsObj(du,quantityL, priceR));
+                    break;
+                case 2 :
+                    du = douong.get(1).getName();
+                    System.out.print("Số lượng: ");
+                    quantityL = (int) checkInteger(0,10);
+                    priceR = douong.get(0).getPrice() * quantityL;
+                    listFoods.add(new FoodsObj(du,quantityL, priceR));
+                    break;
+                case 3 :
+                    du =douong.get(2).getName();
+                    System.out.print("Số lượng: ");
+                    quantityL = (int) checkInteger(0,10);
+                    priceR = douong.get(0).getPrice() * quantityL;
+                    listFoods.add(new FoodsObj(du,quantityL, priceR));
+                    break;
+
+            }
+        }while (selectDU != 0);
 
     }
 
-    public static void menuLau () {
-        if (listMonLau.size() == 0) {
+    public static void menuLau () throws InterruptedException {
+        List<MonLau> lau = readFile.readMonLau();
+        if (lau.size() == 0) {
             System.out.println(ANSI_YELLOW + "TẠM HẾT HÀNG");
         }else {
             System.out.println(ANSI_WHITE + "\n|||||||||||||||||||||||||||||||||||||||||");
             System.out.println("||           THỰC ĐƠN LẪU              ||");
             System.out.println("||-------------------------------------||");
-            System.out.println("|| " +listMonLau.get(0).getPrice() + "k" + "          "+listMonLau.get(0).getName());
-            System.out.println("|| " +listMonLau.get(1).getPrice() + "k" + "          "+listMonLau.get(1).getName());
-            System.out.println("|| " +listMonLau.get(2).getPrice() + "k" + "          "+listMonLau.get(2).getName());
+            System.out.println("|| " +lau.get(0).getPrice() + "k" + "          "+lau.get(0).getName());
+            System.out.println("|| " +lau.get(1).getPrice() + "k" + "          "+lau.get(1).getName());
+            System.out.println("|| " +lau.get(2).getPrice() + "k" + "          "+lau.get(2).getName());
             System.out.println("||                           0. _back_ ||");
             System.out.println("|||||||||||||||||||||||||||||||||||||||||");
         }
+        int selectR;
+        String mLau = "";
+        int quantityL = 0;
+        int priceR = 0;
+
+        do {
+            System.out.print(ANSI_YELLOW + "select: ");
+            selectR = (int) checkInteger(0,3);
+            switch (selectR)
+            {
+                case 0 :
+                    menu();
+                    break;
+                case 1 :
+                    mLau = lau.get(0).getName();
+                    System.out.print("Số lượng: ");
+                    quantityL = (int) checkInteger(0,10);
+                    priceR = lau.get(0).getPrice()* quantityL;
+                    listFoods.add(new FoodsObj(mLau,quantityL, priceR));
+                    break;
+                case 2 :
+                    mLau = lau.get(1).getName();
+                    System.out.print("Số lượng: ");
+                    quantityL = (int) checkInteger(0,10);
+                    priceR = lau.get(0).getPrice() * quantityL;
+                    listFoods.add(new FoodsObj(mLau,quantityL, priceR));
+                    break;
+                case 3 :
+                    mLau =lau.get(2).getName();
+                    System.out.print("Số lượng: ");
+                    quantityL = (int) checkInteger(0,10);
+                    priceR = lau.get(0).getPrice() * quantityL;
+                    listFoods.add(new FoodsObj(mLau,quantityL, priceR));
+                    break;
+
+            }
+        }while (selectR != 0);
 
     }
 
     public static void menuNuiRung() throws InterruptedException {
-        if (listMonRung.size() == 0) {
+        List <MonRung> monRung = readFile.readMonRung();
+        if (monRung.size() == 0) {
             System.out.println(ANSI_YELLOW + "TẠM HẾT HÀNG");
         }else {
             System.out.println(ANSI_GREEN + "\n|||||||||||||||||||||||||||||||||||||||||");
             System.out.println("||           THỰC ĐƠN NÚI RỪNG         ||");
             System.out.println("||-------------------------------------||");
-            System.out.println("|| " +listMonRung.get(0).getPrice() + "k" + "          "+listMonRung.get(0).getName());
-            System.out.println("|| " +listMonRung.get(1).getPrice() + "k" + "          "+listMonRung.get(1).getName());
-            System.out.println("|| " +listMonRung.get(2).getPrice() + "k" + "          "+listMonRung.get(2).getName());
+            System.out.println("|| 1. " +monRung.get(0).getPrice() + "k" + "          "+monRung.get(0).getName());
+            System.out.println("|| 2. " +monRung.get(1).getPrice() + "k" + "          "+monRung.get(1).getName());
+            System.out.println("|| 3. " +monRung.get(2).getPrice() + "k" + "          "+monRung.get(2).getName());
             System.out.println("||                           0. _back_ ||");
             System.out.println("|||||||||||||||||||||||||||||||||||||||||");
         }
+        int selectR;
+        String rung = "";
+        int quantityR = 0;
+        int priceR = 0;
 
+        do {
+            System.out.print(ANSI_YELLOW + "select: ");
+            selectR = (int) checkInteger(0,3);
+            switch (selectR)
+            {
+                case 0 :
+                    menu();
+                    break;
+                case 1 :
+                    rung = monRung.get(0).getName();
+                    System.out.print("Số lượng: ");
+                    quantityR = (int) checkInteger(0,10);
+                    priceR = monRung.get(0).getPrice()* quantityR;
+                    listFoods.add(new FoodsObj(rung,quantityR, priceR));
+                    break;
+                case 2 :
+                    rung = monRung.get(1).getName();
+                    System.out.print("Số lượng: ");
+                    quantityR = (int) checkInteger(0,10);
+                    priceR = monRung.get(0).getPrice() * quantityR;
+                    listFoods.add(new FoodsObj(rung,quantityR, priceR));
+                    break;
+                case 3 :
+                    rung =monRung.get(2).getName();
+                    System.out.print("Số lượng: ");
+                    quantityR = (int) checkInteger(0,10);
+                    priceR = monRung.get(0).getPrice() * quantityR;
+                    listFoods.add(new FoodsObj(rung,quantityR, priceR));
+                    break;
 
+            }
+        }while (selectR != 0);
     }
 
     public static void menuHaiSan () throws InterruptedException {
-        if (listHaiSan.size() == 0) {
+        List <MonHaiSan> monHaiSan = readFile.readMonHaiSan();
+        if (monHaiSan.size() == 0) {
             System.out.println(ANSI_YELLOW + "TẠM HẾT HÀNG");
         }else {
             System.out.println(ANSI_YELLOW + "\n|||||||||||||||||||||||||||||||||||||||||");
             System.out.println("||           THỰC ĐƠN HẢI SẢN          ||");
             System.out.println("||-------------------------------------||");
-            System.out.println("|| " +listHaiSan.get(0).getPrice() + "k" + "          "+listHaiSan.get(0).getName());
-            System.out.println("|| " +listHaiSan.get(1).getPrice() + "k" + "          "+listHaiSan.get(1).getName());
-            System.out.println("|| " +listHaiSan.get(2).getPrice() + "k" + "          "+listHaiSan.get(2).getName());
+            System.out.println("|| 1. " +monHaiSan.get(0).getPrice() + "k" + "          "+monHaiSan.get(0).getName());
+            System.out.println("|| 2. " +monHaiSan.get(1).getPrice() + "k" + "          "+monHaiSan.get(1).getName());
+            System.out.println("|| 3. " +monHaiSan.get(2).getPrice() + "k" + "          "+monHaiSan.get(2).getName());
             System.out.println("||                           0. _back_ ||");
             System.out.println("|||||||||||||||||||||||||||||||||||||||||");
             int selectHS;
@@ -129,24 +248,24 @@ public class Function {
                         menu();
                         break;
                     case 1 :
-                        hai_san = "NGAO,SÒ,ỐC,HẾN";
+                        hai_san = monHaiSan.get(0).getName();
                         System.out.print("Số lượng: ");
                         quantityHS = (int) checkInteger(0,10);
-                        priceHS = 100* quantityHS;
+                        priceHS = monHaiSan.get(0).getPrice()* quantityHS;
                         listFoods.add(new FoodsObj(hai_san,quantityHS, priceHS));
                         break;
                     case 2 :
-                        hai_san = "CUA,TÔM,CÁ,GHẸ";
+                        hai_san = monHaiSan.get(1).getName();
                         System.out.print("Số lượng: ");
                         quantityHS = (int) checkInteger(0,10);
-                        priceHS = 250 * quantityHS;
+                        priceHS = monHaiSan.get(0).getPrice() * quantityHS;
                         listFoods.add(new FoodsObj(hai_san,quantityHS, priceHS));
                         break;
                     case 3 :
-                        hai_san = "ĐẶT BIỆT ỐC VÒI VOI";
+                        hai_san =monHaiSan.get(2).getName();
                         System.out.print("Số lượng: ");
                         quantityHS = (int) checkInteger(0,10);
-                        priceHS = 1000000 * quantityHS;
+                        priceHS = monHaiSan.get(0).getPrice() * quantityHS;
                         listFoods.add(new FoodsObj(hai_san,quantityHS, priceHS));
                         break;
 
@@ -157,7 +276,7 @@ public class Function {
     }
 
     public static void menuKhaiVi() throws InterruptedException {
-        List <MonKhaiVi> monKhaiVi = readMonKhaiVi();
+        List <MonKhaiVi> monKhaiVi = readFile.readMonKhaiVi();
         if (monKhaiVi.size() == 0) {
             System.out.println(ANSI_YELLOW + "TẠM HẾT HÀNG");
         }else {
@@ -347,54 +466,63 @@ public class Function {
     }
 
     private static void hienThiTatCa() {
+//        hiển thị file khai vị
+        List <MonKhaiVi> monKhaiVi = readFile.readMonKhaiVi();
         System.out.println(ANSI_GREEN + "Món khai vị:");
         if(monKhaiVi.size() == 0) {
             System.out.println(ANSI_WHITE + "CHƯA CÓ THÔNG TIN MÓN ĂN");
         }else {
-            TenVaGia ();
             for(MonKhaiVi kv : monKhaiVi)
             {
                 System.out.println(kv.toString());
             }
         }
 
+//        hiển thị file hải sản
+        List <MonHaiSan> monHaiSan = readFile.readMonHaiSan();
         System.out.println(ANSI_GREEN + "Hải Sản: ");
-        if(listHaiSan.size() == 0) {
+        if(monHaiSan.size() == 0) {
             System.out.println(ANSI_WHITE + "CHƯA CÓ THÔNG TIN MÓN ĂN");
         }else {
             TenVaGia ();
-            for (MonHaiSan hs: listHaiSan)
+            for (MonHaiSan hs: monHaiSan)
             {
             System.out.println(hs.toString());
             }
         }
 
+//        Hiển thị file Món Rừng
+        List <MonRung> monRung = readFile.readMonRung();
         System.out.println(ANSI_GREEN + "Món Rừng: ");
-        if(listMonRung.size() == 0) {
+        if(monRung.size() == 0) {
             System.out.println(ANSI_WHITE + "CHƯA CÓ THÔNG TIN MÓN ĂN");
         }else {
             TenVaGia ();
-            for (MonRung mr : listMonRung) {
+            for (MonRung mr : monRung) {
                 System.out.println(mr.toString());
             }
         }
 
+//        Hiển thị file Lẫu
+        List<MonLau> lau = readFile.readMonLau();
         System.out.println(ANSI_GREEN + "Món Lẫu:");
-        if(listMonLau.size() == 0) {
+        if(lau.size() == 0) {
             System.out.println(ANSI_WHITE + "CHƯA CÓ THÔNG TIN MÓN ĂN");
         }else {
             TenVaGia();
-            for (MonLau ml : listMonLau) {
+            for (MonLau ml : lau) {
                 System.out.println(ml.toString());
             }
         }
 
+//        Đọc file Đồ uống
+        List<DoUong> douong = readFile.readDoUong();
         System.out.println(ANSI_GREEN + "Đồ Uống:");
-        if(listDoUong.size() == 0) {
+        if(douong.size() == 0) {
             System.out.println(ANSI_WHITE + "CHƯA CÓ THÔNG TIN MÓN ĂN");
         }else {
             TenVaGia ();
-            for (DoUong du : listDoUong) {
+            for (DoUong du : douong) {
                 System.out.println(du.toString());
             }
         }
@@ -402,15 +530,30 @@ public class Function {
     }
 
     private static void kiemTraDoanhThu() {
+
     }
 
-    private static void xoaMonAn() {
+    private static void xoaMonAn() throws InterruptedException {
+        System.out.println(ANSI_BLUE + "\n|||||||||||||||||||||||||||||||||||||||||");
+        System.out.println("||            TRANG THÊM MÓN ĂN        ||");
+        System.out.println("||-------------------------------------||");
+        System.out.println("||     1. XOÁ MÓN KHAI VỊ              ||");
+        System.out.println("||     2. XOÁ MÓN HAI SẢN              ||");
+        System.out.println("||     3. XOÁ MÓN RỪNG                 ||");
+        System.out.println("||     4. XOÁ MÓN LẪU                  ||");
+        System.out.println("||     5. XOÁ ĐỒ UỐNG                  ||");
+        System.out.println("||                           0. _BACK_ ||");
+        System.out.println("|||||||||||||||||||||||||||||||||||||||||");
+
+
+
+
     }
 
     private static void suaMonAn() throws InterruptedException {
 
         System.out.println(ANSI_BLUE + "\n|||||||||||||||||||||||||||||||||||||||||");
-        System.out.println("||            TRANG THÊM MÓN ĂN        ||");
+        System.out.println("||            TRANG SỬA MÓN ĂN        ||");
         System.out.println("||-------------------------------------||");
         System.out.println("||     1. SỬA MÓN KHAI VỊ              ||");
         System.out.println("||     2. SỬA MÓN HAI SẢN              ||");
@@ -428,11 +571,10 @@ public class Function {
                     addmin();
                     break;
                 case 1 :
-                    List <MonKhaiVi> monKhaiVi = readMonKhaiVi();
+                    List <MonKhaiVi> monKhaiVi = readFile.readMonKhaiVi();
                     System.out.println("Nhập tên món: ");
                     String name = check.checkString();
                     for (MonKhaiVi khaiVi : monKhaiVi) {
-                        System.out.println(khaiVi);
                         if(khaiVi.getName().equals(name)) {
                             System.out.println("Nhập tên mới: ");
                             String newName= check.checkString();
@@ -440,22 +582,74 @@ public class Function {
                             System.out.println("Nhập giá: ");
                             int newPrice = (int) check.checkInteger(0,1000);
                             khaiVi.setPrice(newPrice);
+                            writeFile.writeToFile(monKhaiVi);
                         }
                     }
-
-                    writeToFile(monKhaiVi);
                     break;
                 case 2 :
+                    List <MonHaiSan> monHaiSan = readFile.readMonHaiSan();
+                    System.out.println("Nhập tên món: ");
+                    String ten = check.checkString();
+                    for (MonHaiSan haiSan : monHaiSan) {
+                        if(haiSan.getName().equals(ten)) {
+                            System.out.println("Nhập tên mới: ");
+                            String newName= check.checkString();
+                            haiSan.setName(newName);
+                            System.out.println("Nhập giá: ");
+                            int newPrice = (int) check.checkInteger(0,1000);
+                            haiSan.setPrice(newPrice);
+                            writeFile.writeToFile(monHaiSan);
+                        }
+                    }
                     break;
                 case 3 :
+                    List <MonRung> monRung = readFile.readMonRung();
+                    System.out.println("Nhập tên món: ");
+                    String mon = check.checkString();
+                    for (MonRung mr : monRung) {
+                        if (mr.getName().equals(mon)) {
+                            System.out.println("Nhập tên mới: ");
+                            String newName = check.checkString();
+                            mr.setName(newName);
+                            System.out.println("Nhập giá: ");
+                            int newPrice = (int) check.checkInteger(0, 1000);
+                            mr.setPrice(newPrice);
+                            writeFile.writeToFile(monRung);
+                        }
+                    }
                     break;
                 case 4 :
+                    List<MonLau> lau = readFile.readMonLau();
+                    System.out.println("Nhập tên món: ");
+                    String monL = check.checkString();
+                    for (MonLau monLau : lau) {
+                        if (monLau.getName().equals(monL)) {
+                            System.out.println("Nhập tên mới: ");
+                            String newName = check.checkString();
+                            monLau.setName(newName);
+                            System.out.println("Nhập giá: ");
+                            int newPrice = (int) check.checkInteger(0, 1000);
+                            monLau.setPrice(newPrice);
+                            writeFile.writeToFile(lau);
+                        }
+                    }
                     break;
                 case 5 :
+                    List<DoUong> douong = readFile.readDoUong();
+                    System.out.println("Nhập tên món: ");
+                    String du = check.checkString();
+                    for (DoUong doU : douong) {
+                        if (doU.getName().equals(du)) {
+                            System.out.println("Nhập tên mới: ");
+                            String newName = check.checkString();
+                            doU.setName(newName);
+                            System.out.println("Nhập giá: ");
+                            int newPrice = (int) check.checkInteger(0, 1000);
+                            doU.setPrice(newPrice);
+                            writeFile.writeToFile(douong);
+                        }
+                    }
                     break;
-
-
-
 
             }
 
@@ -495,7 +689,7 @@ public class Function {
                         int price = (int) checkInteger(0,1000);
                         monKhaiVi.add(new MonKhaiVi(name,price));
                     }
-                    writeToFile(monKhaiVi);
+                    writeFile.writeToFile(monKhaiVi);
                     break;
                 case 2 :
                     System.out.println("Nhập số món: ");
@@ -507,7 +701,7 @@ public class Function {
                         int price = (int) checkInteger(0,1000);
                         listHaiSan.add(new MonHaiSan(name,price));
                     }
-                    writeToFile(listHaiSan);
+                    writeFile.writeToFile(listHaiSan);
                     break;
                 case 3 :
                     System.out.println("Nhập số món: ");
@@ -519,7 +713,7 @@ public class Function {
                         int price = (int) checkInteger(0,1000);
                         listMonRung.add(new MonRung(name,price));
                     }
-                    writeToFile(listMonRung);
+                    writeFile.writeToFile(listMonRung);
                     break;
                 case 4 :
                     System.out.println("Nhập số món: ");
@@ -531,7 +725,7 @@ public class Function {
                         int price = (int) checkInteger(0,1000);
                         listMonLau.add(new MonLau(name,price));
                     }
-                    writeToFile(listMonLau);
+                    writeFile.writeToFile(listMonLau);
                     break;
                 case 5 :
                     System.out.println("Nhập số món: ");
@@ -543,7 +737,7 @@ public class Function {
                         int price = (int) checkInteger(0,1000);
                         listDoUong.add(new DoUong(name,price));
                     }
-                    writeToFile(listDoUong);
+                    writeFile.writeToFile(listDoUong);
                     break;
             }
         }while (selectThemMon != 0);
@@ -551,54 +745,7 @@ public class Function {
 
 
     public static void TenVaGia () {
-        System.out.println("\t\t\t\tTÊN\t\tGIÁ");
-        System.out.println("\t\t\t\t--------------------");
+        System.out.println("TÊN\t\tGIÁ");
+        System.out.println("--------------------");
     }
-
-    public static <E> void writeToFile(List <E> listName) {
-        System.out.println("Nhập tên file: ");
-        String fileName = check.checkString();
-        try {
-            FileWriter file = new FileWriter(fileName);
-            BufferedWriter bufferedWriter = new BufferedWriter(file);
-            for (E e : listName) {
-                bufferedWriter.write(e.toString());
-                bufferedWriter.newLine();
-            }
-            bufferedWriter.close();
-            file.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    public static List<MonKhaiVi> readMonKhaiVi () {
-        List<MonKhaiVi> khaiVi = new ArrayList<>();
-        try {
-            FileReader file = new FileReader("khaiviFile.txt");
-            BufferedReader bufferedReader = new BufferedReader(file);
-            String line = "";
-            while (true) {
-                line = bufferedReader.readLine();
-                if (line == null) {
-                    break;
-                }
-                String [] khaiviTXT = line.split(",");
-                String name = khaiviTXT[0];
-                int price = Integer.parseInt(khaiviTXT[1]);
-                khaiVi.add(new MonKhaiVi(name,price));
-            }
-
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return khaiVi;
-    }
-
-
-
 }
