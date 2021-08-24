@@ -1,6 +1,6 @@
 package com.codegymhueJava.Thread;
 
-public class Loading extends Thread{
+public class Update extends Thread{
 
     public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
     public static final String ANSI_RESET = "\u001B[0m";
@@ -8,7 +8,7 @@ public class Loading extends Thread{
 
     @Override
     public void run() {
-        System.out.print("Loanding");
+        System.out.print("Updating");
         for (int i = 0; i < 33; i++) {
             System.out.print(ANSI_BLACK + ANSI_WHITE_BACKGROUND + " " + ANSI_RESET);
             try {

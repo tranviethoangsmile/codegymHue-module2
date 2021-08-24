@@ -1,4 +1,4 @@
-package com.codegymhueJava;
+package com.codegymhueJava.service;
 
 import java.io.EOFException;
 import java.util.Scanner;

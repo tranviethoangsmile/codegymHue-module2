@@ -1,4 +1,4 @@
-package com.codegymhueJava.Student;
+package com.codegymhueJava.Model;
 
 public class Students {
     private String name;
@@ -75,4 +75,5 @@ public class Students {
     public String toString() {
         return String.format("%5s%20s%10f%10f%10f%10f%10d",id,name,oralTest,test15,test45,semesterTest,this.getMedium());
     }
+
 }
