@@ -7,13 +7,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-public class WriteFile {
+public class WriteFileDoanhThu {
     static CheckInput check = new CheckInput();
-    public static <E> void writeToFile(List<E> listName) {
-        System.out.println("Nhập tên file: ");
-        String fileName = check.checkString();
+    public static <E> void writeToFileDoanhThu(List<E> listName) {
         try {
-            FileWriter file = new FileWriter(fileName,true);
+            FileWriter file = new FileWriter("doanhThuFile.csv",true);
             BufferedWriter bufferedWriter = new BufferedWriter(file);
             for (E e : listName) {
                 bufferedWriter.write(e.toString());
@@ -25,5 +23,4 @@ public class WriteFile {
             e.printStackTrace();
         }
     }
-
 }

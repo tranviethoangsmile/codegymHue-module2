@@ -1,6 +1,7 @@
-package com.codegymhueJava.custorm;
+package com.codegymhueJava.model;
 
 public class FoodsObj {
+    private int id;
     private String name;
     private int quantity;
     private int price;
@@ -9,6 +10,13 @@ public class FoodsObj {
     }
 
     public FoodsObj(String name, int quantity, int price) {
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
+    }
+
+    public FoodsObj(int id, String name, int quantity, int price) {
+        this.id = id;
         this.name = name;
         this.quantity = quantity;
         this.price = price;

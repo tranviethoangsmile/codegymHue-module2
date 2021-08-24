@@ -1,6 +1,6 @@
 package com.codegymhueJava.Functions;
 
-import com.codegymhueJava.custorm.*;
+import com.codegymhueJava.model.*;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

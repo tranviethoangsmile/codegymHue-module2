@@ -1,4 +1,4 @@
-package com.codegymhueJava.check;
+package com.codegymhueJava.service;
 
 import java.util.Scanner;
 

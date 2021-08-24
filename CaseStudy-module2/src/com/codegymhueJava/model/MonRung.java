@@ -1,13 +1,13 @@
-package com.codegymhueJava.custorm;
+package com.codegymhueJava.model;
 
-public class MonHaiSan {
+public class MonRung {
     private String name;
     private int price;
 
-    public MonHaiSan() {
+    public MonRung() {
     }
 
-    public MonHaiSan(String name, int price) {
+    public MonRung(String name, int price) {
         this.name = name;
         this.price = price;
     }
