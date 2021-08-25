@@ -1,5 +1,8 @@
-package com.codegymhueJava.Functions;
+package com.codegymhueJava.working;
 
+import com.codegymhueJava.readFile.ReadFile;
+import com.codegymhueJava.readFile.ReadFileTable;
+import com.codegymhueJava.writeFIleOption.WriteFileTable;
 import com.codegymhueJava.Thread.Loading;
 import com.codegymhueJava.Thread.Sale;
 import com.codegymhueJava.Thread.ThreadGoodBye;
@@ -12,7 +15,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
-import static com.codegymhueJava.Functions.WriteFileDoanhThu.writeToFileDoanhThu;
+
+import static com.codegymhueJava.working.GoHome.cachDungBua;
+import static com.codegymhueJava.writeFIleOption.WriteFileDoanhThu.writeToFileDoanhThu;
 import static com.codegymhueJava.service.CheckInput.checkInteger;
 
 public class Restaurant {
@@ -40,6 +45,8 @@ public class Restaurant {
         public static final String ANSI_WHITE = "\u001B[37m";
         public static final String ANSI_GREEN = "\u001B[32m";
         public static final String ANSI_CYAN = "\u001B[36m";
+        public static final String ANSI_RED = "\u001B[31m";
+        public static final String ANSI_RESET = "\u001B[0m";
 
         static Scanner scanner = new Scanner(System.in);
         //    kiểm tra đầu vào
@@ -48,12 +55,9 @@ public class Restaurant {
         //    đọc file
         public static ReadFile readFile = new ReadFile();
 
-        //    ghi file
-        static WriteFile writeFile = new WriteFile();
-
         //    List
         static List<FoodsObj> listFoods = new ArrayList<FoodsObj>();
-        static Function function = new Function();
+        static GoHome function = new GoHome();
 
         static int id;
         public static void chonBan () throws FileNotFoundException, InterruptedException {
@@ -73,79 +77,26 @@ public class Restaurant {
             System.out.println("||QUẦY    |                  0. _BACK_ ||");
             System.out.println("||||||||||||||-CỬA CHÍNH-||||||||||||||||");
             System.out.print(ANSI_YELLOW + "select: ");
-            int max = table.size();
-                int select = (int) checkInteger(0,max + 1);
-                if(table.size() == 0) {
-                    System.out.println("không có bàn trống");
-                }else {
-                    for(Table tb : table) {
-                        if(tb.getId() == select) {
-                            id = select;
-                            table.remove(select - 1);
-                            writeFileTable.writeToFileTable(table);
-                            menu ();
-                        }else {
-                            System.out.println("Bàn đã có khách đặt, quý khách vui lòng chọn bàn khác..");
-                            chonBan ();
-                        }
+            int select;
+            do {
+                select = (int) checkInteger(0, table.size());
+                if(select == 0) {
+                    cachDungBua();
+                }
+                for(Table tb : table) {
+                    if(tb.getId() == select) {
+                        id = select;
+                        table.remove(select -1);
+                        writeFileTable.writeToFileTable(table);
+                        menu ();
+                    }else {
+                        System.out.println(ANSI_WHITE + "Bàn đã có khách đặt, Vui lòng chọn bàn khác..xin cảm ơn" + ANSI_RESET);
+                        chonBan ();
                     }
                 }
 
-//            while (true) {
-//                System.out.print(ANSI_YELLOW + "select: ");
-//                int select = (int) checkInteger(0,table.size());
-//                switch (select)
-//                {
-//                    case 0 :
-//                        function.menu();
-//                        break;
-//                    case 1 :
-//                        id = 1;
-//                        table.remove(select - 1);
-//                        menu ();
-//                        break;
-//                    case 2 :
-//                        id = 2;
-//                        table.remove(select - 1);
-//                        menu ();
-//                        break;
-//                    case 3 :
-//                        id =3;
-//                        table.remove(select - 1);
-//                        menu ();
-//                        break;
-//                    case 4 :
-//                        id = 4;
-//                        table.remove(select - 1);
-//                        menu ();
-//                        break;
-//                    case 5 :
-//                        id = 5;
-//                        table.remove(select - 1);
-//                        menu ();
-//                        break;
-//                    case 6 :
-//                        id = 6;
-//                        table.remove(select - 1);
-//                        menu ();
-//                        break;
-//                    case 7 :
-//                        id = 7;
-//                        table.remove(select - 1);
-//                        menu ();
-//                        break;
-//                    case 8 :
-//                        id = 8;
-//                        table.remove(select - 1);
-//                        menu ();
-//                        break;
-//                    case 9 :
-//                        id = 9;
-//                        table.remove(select - 1);
-//                        menu ();
-//                        break;
-//                }
-//            }
+
+            }while(select != 0);
         }
 
         public static void menu () throws FileNotFoundException, InterruptedException {
@@ -207,9 +158,9 @@ public class Restaurant {
                 System.out.println(ANSI_PURPLE + "\n|||||||||||||||||||||||||||||||||||||||||");
                 System.out.println("||           THỰC ĐƠN KHAI VỊ          ||");
                 System.out.println("||-------------------------------------||");
-                System.out.printf("%2s%10s%10d","1",monKhaiVi.get(0).getName(),monKhaiVi.get(0).getPrice());
-                System.out.printf("\n%2s%10s%10d","2",monKhaiVi.get(1).getName(),monKhaiVi.get(1).getPrice());
-                System.out.printf("\n%2s%10s%10d","3",monKhaiVi.get(2).getName(),monKhaiVi.get(2).getPrice());
+                for( int  i = 0; i < monKhaiVi.size(); i ++) {
+                    System.out.printf("\n%5s.%10s%10d",i+1,monKhaiVi.get(i).getName(),monKhaiVi.get(i).getPrice());
+                }
                 System.out.println("\n||                           0. _back_ ||");
                 System.out.println("|||||||||||||||||||||||||||||||||||||||||");
                 int selectKV;
@@ -260,9 +211,9 @@ public class Restaurant {
             System.out.println(ANSI_YELLOW + "\n|||||||||||||||||||||||||||||||||||||||||");
             System.out.println("||           THỰC ĐƠN HẢI SẢN          ||");
             System.out.println("||-------------------------------------||");
-            System.out.printf("%2s%10s%10d","1",monHaiSan.get(0).getName(),monHaiSan.get(0).getPrice());
-            System.out.printf("\n%2s%10s%10d","2",monHaiSan.get(1).getName(),monHaiSan.get(1).getPrice());
-            System.out.printf("\n%2s%10s%10d","3",monHaiSan.get(2).getName(),monHaiSan.get(2).getPrice());
+            for( int  i = 0; i < monHaiSan.size(); i ++) {
+                System.out.printf("\n%5s.%10s%10d",i+1,monHaiSan.get(i).getName(),monHaiSan.get(i).getPrice());
+            }
             System.out.println("\n||                           0. _back_ ||");
             System.out.println("|||||||||||||||||||||||||||||||||||||||||");
             int selectHS;
@@ -313,9 +264,9 @@ public class Restaurant {
             System.out.println(ANSI_GREEN + "\n|||||||||||||||||||||||||||||||||||||||||");
             System.out.println("||           THỰC ĐƠN NÚI RỪNG         ||");
             System.out.println("||-------------------------------------||");
-            System.out.printf("%2s%10s%10d","1",monRung.get(0).getName(),monRung.get(0).getPrice());
-            System.out.printf("\n%2s%10s%10d","2",monRung.get(1).getName(),monRung.get(1).getPrice());
-            System.out.printf("\n%2s%10s%10d","3",monRung.get(2).getName(),monRung.get(2).getPrice());
+            for( int  i = 0; i < monRung.size(); i ++) {
+                System.out.printf("\n%5s.%10s%10d",i+1,monRung.get(i).getName(),monRung.get(i).getPrice());
+            }
             System.out.println("\n||                           0. _back_ ||");
             System.out.println("|||||||||||||||||||||||||||||||||||||||||");
         }
@@ -366,9 +317,10 @@ public class Restaurant {
             System.out.println(ANSI_WHITE + "\n|||||||||||||||||||||||||||||||||||||||||");
             System.out.println("||           THỰC ĐƠN LẨU              ||");
             System.out.println("||-------------------------------------||");
-            System.out.printf("%2s%10s%10d","1",lau.get(0).getName(),lau.get(0).getPrice());
-            System.out.printf("\n%2s%10s%10d","2",lau.get(1).getName(),lau.get(1).getPrice());
-            System.out.printf("\n%2s%10s%10d","3",lau.get(2).getName(),lau.get(2).getPrice());
+//            in danh sách các món
+            for( int  i = 0; i < lau.size(); i ++) {
+                System.out.printf("\n%5s.%10s%10d",i+1,lau.get(i).getName(),lau.get(i).getPrice());
+            }
             System.out.println("\n||                           0. _back_ ||");
             System.out.println("|||||||||||||||||||||||||||||||||||||||||");
         }
@@ -418,9 +370,9 @@ public class Restaurant {
             System.out.println(ANSI_CYAN + "\n|||||||||||||||||||||||||||||||||||||||||");
             System.out.println("||           THỰC ĐƠN ĐỒ UỐNG          ||");
             System.out.println("-----------------------------------------");
-            System.out.printf("%2s%10s%10d","1",douong.get(0).getName(),douong.get(0).getPrice());
-            System.out.printf("\n%2s%10s%10d","2",douong.get(1).getName(),douong.get(1).getPrice());
-            System.out.printf("\n%2s%10s%10d","3",douong.get(2).getName(),douong.get(2).getPrice());
+            for( int  i = 0; i < douong.size(); i ++) {
+                System.out.printf("\n%5s.%10s%10d",i+1,douong.get(i).getName(),douong.get(i).getPrice());
+            }
             System.out.println("\n||                           0. _back_ ||");
             System.out.println("|||||||||||||||||||||||||||||||||||||||||");
         }
@@ -521,7 +473,7 @@ public class Restaurant {
         Date date = new Date();
         System.out.println("\nTotal: " + totalPrice + " k");
         System.out.println("Thời gian: " + date);
-        System.out.println(ANSI_PURPLE+"XIN CẢM ƠN QUÝ KHÁCH");
+        System.out.println(ANSI_RED+"XIN CẢM ƠN QUÝ KHÁCH" + ANSI_RESET);
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String time = formatter.format(date);
         listDoanhThu.add(new DoanhThu(totalPrice,time));

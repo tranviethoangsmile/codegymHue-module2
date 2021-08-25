@@ -1,3 +1,3 @@
-tuoi,100
-bo,150
-ga,200
+Bia xác loại,25
+Nước ngọt,20
+Nước suối,10

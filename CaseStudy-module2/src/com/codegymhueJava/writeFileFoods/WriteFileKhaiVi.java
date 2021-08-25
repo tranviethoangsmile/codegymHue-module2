@@ -1,19 +1,14 @@
-package com.codegymhueJava.Functions;
-
-import com.codegymhueJava.service.CheckInput;
+package com.codegymhueJava.writeFileFoods;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-public class WriteFile {
-    static CheckInput check = new CheckInput();
-    public static <E> void writeToFile(List<E> listName) {
-        System.out.println("Nhập tên file: ");
-        String fileName = check.checkString();
+public class WriteFileKhaiVi {
+    public static <E> void writeToFileKhaiVi(List<E> listName) {
         try {
-            FileWriter file = new FileWriter(fileName,true);
+            FileWriter file = new FileWriter("khaiviFile.txt");
             BufferedWriter bufferedWriter = new BufferedWriter(file);
             for (E e : listName) {
                 bufferedWriter.write(e.toString());
@@ -25,5 +20,4 @@ public class WriteFile {
             e.printStackTrace();
         }
     }
-
 }

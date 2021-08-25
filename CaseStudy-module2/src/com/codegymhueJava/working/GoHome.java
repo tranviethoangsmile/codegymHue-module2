@@ -1,24 +1,27 @@
-package com.codegymhueJava.Functions;
+package com.codegymhueJava.working;
 
+import com.codegymhueJava.writeFIleOption.*;
 import com.codegymhueJava.Thread.Loading;
 import com.codegymhueJava.Thread.Sale;
 import com.codegymhueJava.Thread.ThreadGoodBye;
+import com.codegymhueJava.readFile.ReadFile;
+import com.codegymhueJava.readFile.ReadFileDoanhThu;
 import com.codegymhueJava.service.CheckInput;
 import com.codegymhueJava.model.*;
+import com.codegymhueJava.writeFileFoods.*;
 
 import java.io.FileNotFoundException;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.codegymhueJava.Functions.WriteFileDoanhThu.writeToFileDoanhThu;
+import static com.codegymhueJava.writeFIleOption.WriteFileDoanhThu.writeToFileDoanhThu;
 import static com.codegymhueJava.service.CheckInput.checkInteger;
 
-    public class Function {
+    public class GoHome {
 //        List doanh thu
         static List <DoanhThu> listDoanhThu = new ArrayList<DoanhThu>();
 //    DANH SÁCH MÓN ĂN VÀ ĐỒ UỐNG.
@@ -43,6 +46,8 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
     public static final String ANSI_WHITE = "\u001B[37m";
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_RESET = "\u001B[0m";
 
     static Scanner scanner = new Scanner(System.in);
     //    kiểm tra đầu vào
@@ -52,7 +57,12 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
     public static ReadFile readFile = new ReadFile();
 
 //    ghi file
-    static WriteFile writeFile = new WriteFile();
+    static WriteFileDoUong writeFileDoUong = new WriteFileDoUong();
+    static WriteFileHaiSan writeFileHaiSan = new WriteFileHaiSan();
+    static WriteFileKhaiVi writeFileKhaiVi = new WriteFileKhaiVi();
+    static WriteFileMonLau writeFileMonLau = new WriteFileMonLau();
+    static WriteFileMonRung writeFileMonRung = new WriteFileMonRung();
+
     static WriteFileTable writeFileTable = new WriteFileTable();
 
     //    List
@@ -74,6 +84,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
         Date date = new Date();
         System.out.println("\nTotal: " + totalPrice + " k");
         System.out.println("Thời gian: " + date);
+        System.out.println(ANSI_RED+"CẢM ƠN QUÝ KHÁCH"+ANSI_RESET);
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String time = formatter.format(date);
         listDoanhThu.add(new DoanhThu(totalPrice,time));
@@ -152,9 +163,9 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
             System.out.println(ANSI_CYAN + "\n|||||||||||||||||||||||||||||||||||||||||");
             System.out.println("||           THỰC ĐƠN ĐỒ UỐNG          ||");
             System.out.println("-----------------------------------------");
-            System.out.printf("%2s%10s%10d","1",douong.get(0).getName(),douong.get(0).getPrice());
-            System.out.printf("\n%2s%10s%10d","2",douong.get(1).getName(),douong.get(1).getPrice());
-            System.out.printf("\n%2s%10s%10d","3",douong.get(2).getName(),douong.get(2).getPrice());
+            for( int  i = 0; i < douong.size(); i ++) {
+                System.out.printf("\n%5s.%10s%10d",i+1,douong.get(i).getName(),douong.get(i).getPrice());
+            }
             System.out.println("\n||                           0. _back_ ||");
             System.out.println("|||||||||||||||||||||||||||||||||||||||||");
         }
@@ -206,9 +217,9 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
             System.out.println(ANSI_WHITE + "\n|||||||||||||||||||||||||||||||||||||||||");
             System.out.println("||           THỰC ĐƠN LẨU              ||");
             System.out.println("||-------------------------------------||");
-            System.out.printf("%2s%10s%10d","1",lau.get(0).getName(),lau.get(0).getPrice());
-            System.out.printf("\n%2s%10s%10d","2",lau.get(1).getName(),lau.get(1).getPrice());
-            System.out.printf("\n%2s%10s%10d","3",lau.get(2).getName(),lau.get(2).getPrice());
+            for( int  i = 0; i < lau.size(); i ++) {
+                System.out.printf("\n%5s.%10s%10d",i+1,lau.get(i).getName(),lau.get(i).getPrice());
+            }
             System.out.println("\n||                           0. _back_ ||");
             System.out.println("|||||||||||||||||||||||||||||||||||||||||");
         }
@@ -260,9 +271,9 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
             System.out.println(ANSI_GREEN + "\n|||||||||||||||||||||||||||||||||||||||||");
             System.out.println("||           THỰC ĐƠN NÚI RỪNG         ||");
             System.out.println("||-------------------------------------||");
-            System.out.printf("%2s%10s%10d","1",monRung.get(0).getName(),monRung.get(0).getPrice());
-            System.out.printf("\n%2s%10s%10d","2",monRung.get(1).getName(),monRung.get(1).getPrice());
-            System.out.printf("\n%2s%10s%10d","3",monRung.get(2).getName(),monRung.get(2).getPrice());
+            for( int  i = 0; i < monRung.size(); i ++) {
+                System.out.printf("\n%5s.%10s%10d",i+1,monRung.get(i).getName(),monRung.get(i).getPrice());
+            }
             System.out.println("\n||                           0. _back_ ||");
             System.out.println("|||||||||||||||||||||||||||||||||||||||||");
         }
@@ -313,9 +324,9 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
             System.out.println(ANSI_YELLOW + "\n|||||||||||||||||||||||||||||||||||||||||");
             System.out.println("||           THỰC ĐƠN HẢI SẢN          ||");
             System.out.println("||-------------------------------------||");
-            System.out.printf("%2s%10s%10d","1",monHaiSan.get(0).getName(),monHaiSan.get(0).getPrice());
-            System.out.printf("\n%2s%10s%10d","2",monHaiSan.get(1).getName(),monHaiSan.get(1).getPrice());
-            System.out.printf("\n%2s%10s%10d","3",monHaiSan.get(2).getName(),monHaiSan.get(2).getPrice());
+            for( int  i = 0; i < monHaiSan.size(); i ++) {
+                System.out.printf("\n%5s.%10s%10d",i+1,monHaiSan.get(i).getName(),monHaiSan.get(i).getPrice());
+            }
             System.out.println("\n||                           0. _back_ ||");
             System.out.println("|||||||||||||||||||||||||||||||||||||||||");
             int selectHS;
@@ -367,9 +378,9 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
             System.out.println(ANSI_PURPLE + "\n|||||||||||||||||||||||||||||||||||||||||");
             System.out.println("||           THỰC ĐƠN KHAI VỊ          ||");
             System.out.println("||-------------------------------------||");
-            System.out.printf("%2s%10s%10d","1",monKhaiVi.get(0).getName(),monKhaiVi.get(0).getPrice());
-            System.out.printf("\n%2s%10s%10d","2",monKhaiVi.get(1).getName(),monKhaiVi.get(1).getPrice());
-            System.out.printf("\n%2s%10s%10d","3",monKhaiVi.get(2).getName(),monKhaiVi.get(2).getPrice());
+            for( int  i = 0; i < monKhaiVi.size(); i ++) {
+                System.out.printf("\n%5s.%10s%10d",i+1,monKhaiVi.get(i).getName(),monKhaiVi.get(i).getPrice());
+            }
             System.out.println("\n||                           0. _back_ ||");
             System.out.println("|||||||||||||||||||||||||||||||||||||||||");
             int selectKV;
@@ -501,11 +512,11 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
                                 if(pass[j].equals(pas)) {
                                     addmin();
                                 }else {
-                                    System.out.println("Vui lòng kiểm tra lại");
+                                    System.out.println("Sai mật khẩu...Vui lòng kiểm tra lại");
                                 }
                             }
                         }else {
-                            System.out.println("Vui lòng kiểm tra lại");
+                            System.out.println("Tên đăng nhập không tồn tại...Vui lòng kiểm tra lại.");
                         }
                     }
                     break;
@@ -579,7 +590,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
         }else {
             for(MonKhaiVi kv : monKhaiVi)
             {
-                System.out.printf("\n%10s%10d",kv.getName(),kv.getPrice());
+                System.out.printf("\n%20s%10d",kv.getName(),kv.getPrice());
             }
         }
 
@@ -592,7 +603,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
 
             for (MonHaiSan hs: monHaiSan)
             {
-                System.out.printf("\n%10s%10d",hs.getName(),hs.getPrice());
+                System.out.printf("\n%20s%10d",hs.getName(),hs.getPrice());
             }
         }
 
@@ -604,7 +615,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
         }else {
 
             for (MonRung mr : monRung) {
-                System.out.printf("\n%10s%10d",mr.getName(),mr.getPrice());
+                System.out.printf("\n%20s%10d",mr.getName(),mr.getPrice());
             }
         }
 
@@ -616,7 +627,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
         }else {
 
             for (MonLau ml : lau) {
-                System.out.printf("\n%10s%10d",ml.getName(),ml.getPrice());
+                System.out.printf("\n%20s%10d",ml.getName(),ml.getPrice());
             }
         }
 
@@ -628,7 +639,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
         }else {
 
             for (DoUong du : douong) {
-                System.out.printf("\n%10s%10d",du.getName(),du.getPrice());
+                System.out.printf("\n%20s%10d",du.getName(),du.getPrice());
             }
         }
             System.out.println("\n");
@@ -639,10 +650,10 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
         ReadFileDoanhThu dt = new ReadFileDoanhThu();
     List<DoanhThu> listDoanhThu = dt.readDoanhThu ();
     int total = 0;
-        System.out.printf("%10s%20s","Tiền","Ngày");
+        System.out.printf("%20s%20s","Tiền","Ngày");
         System.out.println("\n-----------------------------------");
     for(DoanhThu o : listDoanhThu) {
-        System.out.printf("\n|%10d|%20s|",o.getTotalPrice(),o.getTime());
+        System.out.printf("\n|%20d|%20s|",o.getTotalPrice(),o.getTime());
     }
 
     for(DoanhThu o : listDoanhThu) {
@@ -703,7 +714,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
                             System.out.println("Nhập giá: ");
                             int newPrice = (int) check.checkInteger(0,1000);
                             khaiVi.setPrice(newPrice);
-                            writeFile.writeToFile(monKhaiVi);
+                            writeFileKhaiVi.writeToFileKhaiVi(monKhaiVi);
                         }
                     }
                     break;
@@ -719,7 +730,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
                             System.out.println("Nhập giá: ");
                             int newPrice = (int) check.checkInteger(0,1000);
                             haiSan.setPrice(newPrice);
-                            writeFile.writeToFile(monHaiSan);
+                            writeFileHaiSan.writeToFileHaiSan(monHaiSan);
                         }
                     }
                     break;
@@ -735,7 +746,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
                             System.out.println("Nhập giá: ");
                             int newPrice = (int) check.checkInteger(0, 1000);
                             mr.setPrice(newPrice);
-                            writeFile.writeToFile(monRung);
+                            writeFileMonRung.writeToFileMonRung(monRung);
                         }
                     }
                     break;
@@ -751,7 +762,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
                             System.out.println("Nhập giá: ");
                             int newPrice = (int) check.checkInteger(0, 1000);
                             monLau.setPrice(newPrice);
-                            writeFile.writeToFile(lau);
+                            writeFileMonLau.writeFileMonLau(lau);
                         }
                     }
                     break;
@@ -767,7 +778,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
                             System.out.println("Nhập giá: ");
                             int newPrice = (int) check.checkInteger(0, 1000);
                             doU.setPrice(newPrice);
-                            writeFile.writeToFile(douong);
+                            writeFileDoUong.writeToFileDoUong(douong);
                         }
                     }
                     break;
@@ -809,7 +820,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
                         int price = (int) checkInteger(0,1000);
                         monKhaiVi.add(new MonKhaiVi(name,price));
                     }
-                    writeFile.writeToFile(monKhaiVi);
+                    writeFileKhaiVi.writeToFileKhaiVi(monKhaiVi);
                     break;
                 case 2 :
                     System.out.println("Nhập số món: ");
@@ -821,7 +832,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
                         int price = (int) checkInteger(0,1000);
                         listHaiSan.add(new MonHaiSan(name,price));
                     }
-                    writeFile.writeToFile(listHaiSan);
+                    writeFileHaiSan.writeToFileHaiSan(listHaiSan);
                     break;
                 case 3 :
                     System.out.println("Nhập số món: ");
@@ -833,7 +844,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
                         int price = (int) checkInteger(0,1000);
                         listMonRung.add(new MonRung(name,price));
                     }
-                    writeFile.writeToFile(listMonRung);
+                    writeFileMonRung.writeToFileMonRung(listMonRung);
                     break;
                 case 4 :
                     System.out.println("Nhập số món: ");
@@ -845,7 +856,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
                         int price = (int) checkInteger(0,1000);
                         listMonLau.add(new MonLau(name,price));
                     }
-                    writeFile.writeToFile(listMonLau);
+                    writeFileMonLau.writeFileMonLau(listMonLau);
                     break;
                 case 5 :
                     System.out.println("Nhập số món: ");
@@ -857,7 +868,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
                         int price = (int) checkInteger(0,1000);
                         listDoUong.add(new DoUong(name,price));
                     }
-                    writeFile.writeToFile(listDoUong);
+                    writeFileMonLau.writeFileMonLau(listDoUong);
                     break;
             }
         }while (selectThemMon != 0);

@@ -1,13 +1,13 @@
 package com.codegymhueJava.main;
 
-import com.codegymhueJava.Functions.Function;
+import com.codegymhueJava.working.GoHome;
 import com.codegymhueJava.Thread.ThreadWelcome;
 
 import java.io.FileNotFoundException;
 
 public class Main {
     static ThreadWelcome threadWelcome = new ThreadWelcome();
-    static Function function = new Function();
+    static GoHome function = new GoHome();
 
 
 
