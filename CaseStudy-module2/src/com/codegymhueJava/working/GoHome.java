@@ -164,7 +164,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
             System.out.println("||           THỰC ĐƠN ĐỒ UỐNG          ||");
             System.out.println("-----------------------------------------");
             for( int  i = 0; i < douong.size(); i ++) {
-                System.out.printf("\n%5s.%10s%10d",i+1,douong.get(i).getName(),douong.get(i).getPrice());
+                System.out.printf("\n%5s.%15s%10d",i+1,douong.get(i).getName(),douong.get(i).getPrice());
             }
             System.out.println("\n||                           0. _back_ ||");
             System.out.println("|||||||||||||||||||||||||||||||||||||||||");
@@ -218,7 +218,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
             System.out.println("||           THỰC ĐƠN LẨU              ||");
             System.out.println("||-------------------------------------||");
             for( int  i = 0; i < lau.size(); i ++) {
-                System.out.printf("\n%5s.%10s%10d",i+1,lau.get(i).getName(),lau.get(i).getPrice());
+                System.out.printf("\n%5s.%15s%10d",i+1,lau.get(i).getName(),lau.get(i).getPrice());
             }
             System.out.println("\n||                           0. _back_ ||");
             System.out.println("|||||||||||||||||||||||||||||||||||||||||");
@@ -272,7 +272,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
             System.out.println("||           THỰC ĐƠN NÚI RỪNG         ||");
             System.out.println("||-------------------------------------||");
             for( int  i = 0; i < monRung.size(); i ++) {
-                System.out.printf("\n%5s.%10s%10d",i+1,monRung.get(i).getName(),monRung.get(i).getPrice());
+                System.out.printf("\n%5s.%15s%10d",i+1,monRung.get(i).getName(),monRung.get(i).getPrice());
             }
             System.out.println("\n||                           0. _back_ ||");
             System.out.println("|||||||||||||||||||||||||||||||||||||||||");
@@ -325,7 +325,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
             System.out.println("||           THỰC ĐƠN HẢI SẢN          ||");
             System.out.println("||-------------------------------------||");
             for( int  i = 0; i < monHaiSan.size(); i ++) {
-                System.out.printf("\n%5s.%10s%10d",i+1,monHaiSan.get(i).getName(),monHaiSan.get(i).getPrice());
+                System.out.printf("\n%5s.%15s%10d",i+1,monHaiSan.get(i).getName(),monHaiSan.get(i).getPrice());
             }
             System.out.println("\n||                           0. _back_ ||");
             System.out.println("|||||||||||||||||||||||||||||||||||||||||");
@@ -379,7 +379,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
             System.out.println("||           THỰC ĐƠN KHAI VỊ          ||");
             System.out.println("||-------------------------------------||");
             for( int  i = 0; i < monKhaiVi.size(); i ++) {
-                System.out.printf("\n%5s.%10s%10d",i+1,monKhaiVi.get(i).getName(),monKhaiVi.get(i).getPrice());
+                System.out.printf("\n%5s.%15s%10d",i+1,monKhaiVi.get(i).getName(),monKhaiVi.get(i).getPrice());
             }
             System.out.println("\n||                           0. _back_ ||");
             System.out.println("|||||||||||||||||||||||||||||||||||||||||");
@@ -876,7 +876,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
 
 
     public static void cachDungBua() throws FileNotFoundException, InterruptedException {
-        System.out.println(ANSI_BLUE + "\n|||||||||||||||||||||||||||||||||||||||||");
+        System.out.println(ANSI_YELLOW + "\n|||||||||||||||||||||||||||||||||||||||||");
         System.out.println("||      BẠN MUỐN DÙNG BỮA Ở ĐÂU?       ||");
         System.out.println("-----------------------------------------");
         System.out.println("||     1. TẠI NHÀ HÀNG                 ||");
