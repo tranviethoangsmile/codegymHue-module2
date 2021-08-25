@@ -1,4 +1,4 @@
-package com.codegymhueJava;
+package com.codegymhueJava.main;
 
 import com.codegymhueJava.Functions.Function;
 import com.codegymhueJava.Thread.ThreadWelcome;

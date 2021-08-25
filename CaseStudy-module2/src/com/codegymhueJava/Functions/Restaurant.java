@@ -16,6 +16,9 @@ import static com.codegymhueJava.Functions.WriteFileDoanhThu.writeToFileDoanhThu
 import static com.codegymhueJava.service.CheckInput.checkInteger;
 
 public class Restaurant {
+//    đọc file table
+    static ReadFileTable readFileTable = new ReadFileTable();
+    static WriteFileTable writeFileTable = new WriteFileTable();
         //        List doanh thu
         static List<DoanhThu> listDoanhThu = new ArrayList<DoanhThu>();
         //    DANH SÁCH MÓN ĂN VÀ ĐỒ UỐNG.
@@ -52,63 +55,97 @@ public class Restaurant {
         static List<FoodsObj> listFoods = new ArrayList<FoodsObj>();
         static Function function = new Function();
 
-        static String id = "";
+        static int id;
         public static void chonBan () throws FileNotFoundException, InterruptedException {
+            List <Table> table = readFileTable.readFileTable();
             System.out.println(ANSI_YELLOW + "\n|||||||||||||||||||||||||||||||||||||||||");
             System.out.println("||       MỜI QUÝ KHÁCH CHỌN BÀN        ||");
             System.out.println("||-------------------------------------||");
-            System.out.println("|| 1.|B1|      2.|B2|       3.|B3|     ||");
-            System.out.println("|| 4.|B1|      5.|B2|       6.|B3|     ||");
-            System.out.println("|| 7.|B1|      8.|B2|       9.|B3|     ||");
+            if(table.size() > 0){
+                for(Table tb : table){
+                    System.out.println("||     "+ tb.getId() +"                       " +tb.getName()+"   ||");
+                }
+            }else {
+                System.out.println("Bàn đã được đặt hết..Xin quý khách thông cảm..");
+            }
+
             System.out.println("___________                            ||");
             System.out.println("||QUẦY    |                  0. _BACK_ ||");
-            System.out.println("|||||||||||||||CỬA CHÍNH|||||||||||||||||");
-            while (true) {
-                System.out.print(ANSI_YELLOW + "select: ");
-                int select = (int) checkInteger(0,9);
-                switch (select)
-                {
-                    case 0 :
-                        function.menu();
-                        break;
-                    case 1 :
-                        id = "b1";
-                        menu ();
-                        break;
-                    case 2 :
-                        id = "b2";
-                        menu ();
-                        break;
-                    case 3 :
-                        id = "b3";
-                        menu ();
-                        break;
-                    case 4 :
-                        id = "b4";
-                        menu ();
-                        break;
-                    case 5 :
-                        id = "b4";
-                        menu ();
-                        break;
-                    case 6 :
-                        id = "b6";
-                        menu ();
-                        break;
-                    case 7 :
-                        id = "b7";
-                        menu ();
-                        break;
-                    case 8 :
-                        id = "b8";
-                        menu ();
-                        break;
-                    case 9 :
-                        id = "b9";
-                        menu ();
-                        break;
+            System.out.println("||||||||||||||-CỬA CHÍNH-||||||||||||||||");
+            System.out.print(ANSI_YELLOW + "select: ");
+            int max = table.size();
+                int select = (int) checkInteger(0,max + 1);
+                if(table.size() == 0) {
+                    System.out.println("không có bàn trống");
+                }else {
+                    for(Table tb : table) {
+                        if(tb.getId() == select) {
+                            id = select;
+                            table.remove(select - 1);
+                            writeFileTable.writeToFileTable(table);
+                            menu ();
+                        }else {
+                            System.out.println("Bàn đã có khách đặt, quý khách vui lòng chọn bàn khác..");
+                            chonBan ();
+                        }
+                    }
                 }
-            }
+
+//            while (true) {
+//                System.out.print(ANSI_YELLOW + "select: ");
+//                int select = (int) checkInteger(0,table.size());
+//                switch (select)
+//                {
+//                    case 0 :
+//                        function.menu();
+//                        break;
+//                    case 1 :
+//                        id = 1;
+//                        table.remove(select - 1);
+//                        menu ();
+//                        break;
+//                    case 2 :
+//                        id = 2;
+//                        table.remove(select - 1);
+//                        menu ();
+//                        break;
+//                    case 3 :
+//                        id =3;
+//                        table.remove(select - 1);
+//                        menu ();
+//                        break;
+//                    case 4 :
+//                        id = 4;
+//                        table.remove(select - 1);
+//                        menu ();
+//                        break;
+//                    case 5 :
+//                        id = 5;
+//                        table.remove(select - 1);
+//                        menu ();
+//                        break;
+//                    case 6 :
+//                        id = 6;
+//                        table.remove(select - 1);
+//                        menu ();
+//                        break;
+//                    case 7 :
+//                        id = 7;
+//                        table.remove(select - 1);
+//                        menu ();
+//                        break;
+//                    case 8 :
+//                        id = 8;
+//                        table.remove(select - 1);
+//                        menu ();
+//                        break;
+//                    case 9 :
+//                        id = 9;
+//                        table.remove(select - 1);
+//                        menu ();
+//                        break;
+//                }
+//            }
         }
 
         public static void menu () throws FileNotFoundException, InterruptedException {
@@ -484,11 +521,13 @@ public class Restaurant {
         Date date = new Date();
         System.out.println("\nTotal: " + totalPrice + " k");
         System.out.println("Thời gian: " + date);
+        System.out.println(ANSI_PURPLE+"XIN CẢM ƠN QUÝ KHÁCH");
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String time = formatter.format(date);
         listDoanhThu.add(new DoanhThu(totalPrice,time));
 //        ghi dữ liệu doanh thu vào file.
         writeToFileDoanhThu(listDoanhThu);
+        listFoods.clear();
 
         System.out.println("||||||||||||||||||||||||");
         System.out.println("||    1. Quay Lai     ||");

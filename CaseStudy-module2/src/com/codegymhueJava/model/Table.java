@@ -1,15 +1,15 @@
 package com.codegymhueJava.model;
 
-import java.util.ArrayList;
-
 public class Table {
     private int id;
-    private boolean status = false;
+    private String name;
+
     public Table() {
     }
 
-    public Table(int id) {
+    public Table(int id, String name) {
         this.id = id;
+        this.name = name;
     }
 
     public int getId() {
@@ -20,4 +20,16 @@ public class Table {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return id + "," + name;
+    }
 }

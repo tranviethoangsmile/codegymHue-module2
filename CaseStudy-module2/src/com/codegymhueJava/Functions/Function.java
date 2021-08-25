@@ -27,8 +27,11 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
     static List <MonLau> listMonLau = new ArrayList<MonLau>();
     static List <DoUong> listDoUong = new ArrayList<DoUong>();
     static List <MonRung> listMonRung = new ArrayList<MonRung>();
-    //    Thread
 
+//    Bàn
+    static List<Table> listTable = new ArrayList<Table>();
+
+    //    Thread
     static ThreadGoodBye threadGoodBye = new ThreadGoodBye();
     static Loading loading = new Loading();
     static Sale sale = new Sale();
@@ -50,6 +53,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
 
 //    ghi file
     static WriteFile writeFile = new WriteFile();
+    static WriteFileTable writeFileTable = new WriteFileTable();
 
     //    List
     static List<FoodsObj> listFoods = new ArrayList<FoodsObj>();
@@ -75,6 +79,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
         listDoanhThu.add(new DoanhThu(totalPrice,time));
 //        ghi dữ liệu doanh thu vào file.
         writeToFileDoanhThu(listDoanhThu);
+        listFoods.clear();
 
         System.out.println("||||||||||||||||||||||||");
         System.out.println("||    1. Quay Lai     ||");
@@ -520,12 +525,13 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
         System.out.println("||     2. SỬA MÓN ĂN                   ||");
         System.out.println("||     3. KIỂM TRA DOANH THU           ||");
         System.out.println("||     4. HIỂN THỊ TẤT CẢ CÁC MÓN      ||");
+        System.out.println("||     5. THIẾT LẬP BÀN                ||");
         System.out.println("||                           0. _exit_ ||");
         System.out.println("|||||||||||||||||||||||||||||||||||||||||");
         int select;
         do {
             System.out.print(ANSI_YELLOW + "select: ");
-             select = (int) checkInteger(0,4);
+             select = (int) checkInteger(0,5);
             switch (select)
             {
                 case 0 :
@@ -543,9 +549,26 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
                 case 4 :
                     hienThiTatCa();
                     break;
+                case 5 :
+                    thietLapBan ();
+                    break;
             }
         }while(select != 0);
     }
+
+        public static void thietLapBan() {
+            System.out.print("Nhập số bàn: ");
+            int ban = (int) checkInteger(1,10);
+            for(int  i = 1; i <= ban ; i++) {
+                System.out.println("ID: ");
+                int id = (int) checkInteger(1,10);
+                System.out.print("Tên bàn: ");
+                String tenBan = check.checkString();
+                listTable.add(new Table(id,tenBan));
+                writeFileTable.writeToFileTable(listTable);
+
+            }
+        }
 
         private static void hienThiTatCa() {
 //        hiển thị file khai vị

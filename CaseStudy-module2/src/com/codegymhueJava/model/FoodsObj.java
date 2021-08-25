@@ -1,7 +1,7 @@
 package com.codegymhueJava.model;
 
 public class FoodsObj {
-    private String id;
+    private int id;
     private String name;
     private int quantity;
     private int price;
@@ -15,7 +15,7 @@ public class FoodsObj {
         this.price = price;
     }
 
-    public FoodsObj(String id, String name, int quantity, int price) {
+    public FoodsObj(int id, String name, int quantity, int price) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
@@ -46,11 +46,11 @@ public class FoodsObj {
         this.price = price;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
