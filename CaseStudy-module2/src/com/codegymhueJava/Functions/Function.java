@@ -54,6 +54,9 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
     //    List
     static List<FoodsObj> listFoods = new ArrayList<FoodsObj>();
 
+//    rẽ nhánh khách dùng tại nhà hàng
+        static Restaurant restaurant = new Restaurant();
+
     public static void inHoaDon () throws InterruptedException, FileNotFoundException {
         int totalPrice = 0;
         System.out.println("\n--------HOÁ ĐƠN THANH TOÁN----------");
@@ -113,7 +116,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
         }
     }
 
-        private static void luaChonThanhToan() throws InterruptedException, FileNotFoundException {
+        public static void luaChonThanhToan() throws InterruptedException, FileNotFoundException {
             System.out.println(ANSI_BLUE + "\n|||||||||||||||||||||||||||||||||||||||||");
             System.out.println("      BẠN CÓ THAY ĐỔI KHÔNG?           ");
             System.out.println("-----------------------------------------");
@@ -425,7 +428,6 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
             switch (select)
             {
                 case 0 :
-//                    Chạy dòng goodbye...
                     begin();
                     break;
                 case 1 :
@@ -503,7 +505,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
                     }
                     break;
                 case 2 :
-                    menu();
+                    cachDungBua();
                     break;
 
             }
@@ -629,7 +631,7 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
     }
 
 
-    private static void xoaMonAn() throws InterruptedException, FileNotFoundException {
+    public static void xoaMonAn() throws InterruptedException, FileNotFoundException {
         System.out.println(ANSI_BLUE + "\n|||||||||||||||||||||||||||||||||||||||||");
         System.out.println("||            BẠN CẦN XOÁ MÓN NÀO?     ||");
         System.out.println("||-------------------------------------||");
@@ -644,9 +646,6 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
             int luaChon = (int) checkInteger(1,listFoods.size());
             listFoods.remove(luaChon - 1);
         luaChonThanhToan();
-
-
-
     }
 
     private static void suaMonAn() throws InterruptedException, FileNotFoundException {
@@ -775,7 +774,6 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
             switch (selectThemMon)
             {
                 case 0 :
-
                     addmin();
                     break;
                 case 1 :
@@ -843,9 +841,33 @@ import static com.codegymhueJava.service.CheckInput.checkInteger;
     }
 
 
-    public static void TenVaGia () {
-        System.out.println("TÊN\t\tGIÁ");
-        System.out.println("--------------------");
+    public static void cachDungBua() throws FileNotFoundException, InterruptedException {
+        System.out.println(ANSI_BLUE + "\n|||||||||||||||||||||||||||||||||||||||||");
+        System.out.println("||      BẠN MUỐN DÙNG BỮA Ở ĐÂU?       ||");
+        System.out.println("-----------------------------------------");
+        System.out.println("||     1. TẠI NHÀ HÀNG                 ||");
+        System.out.println("||     2. MANG VỀ                      ||");
+        System.out.println("||                           0. _exit_ ||");
+        System.out.println("|||||||||||||||||||||||||||||||||||||||||");
+        while (true) {
+            System.out.print(ANSI_YELLOW + "select: ");
+            int select = (int) checkInteger(0,2);
+            switch (select)
+            {
+                case 0 :
+//                    Chạy dòng goodbye...
+                    threadGoodBye.start();
+                    threadGoodBye.join();
+                    System.exit(0);
+                case 1 :
+                    restaurant.chonBan();
+                    break;
+                case 2 :
+                    menu();
+                    break;
+
+            }
+        }
     }
 
 }
